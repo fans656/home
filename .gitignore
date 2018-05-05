@@ -1,10 +1,12 @@
 /*
+
+!/.vim/
+
 !/.bashrc
 !/.profile
 !/.inputrc
 !/.dircolors
-
-!/.vim/
+!/.tmux.conf
 
 !/.gitignore
 !/.gitconfig

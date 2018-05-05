@@ -158,6 +158,11 @@ inoremap ;fl from flask import *<cr>
     \<cr><cr>
     \app = Flask(__name__)<cr>
     \<cr><cr>
+    \@app.after_request<cr>
+    \def after_request(r):<cr>
+    \r.headers['Cache-Control'] = 'no-cache'<cr>
+    \return r<cr>
+    \<cr><cr>
     \@app.route('/')<cr>
     \def index():<cr>
     \return 'hello world'<cr>
