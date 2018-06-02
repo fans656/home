@@ -240,4 +240,4 @@ vnoremap [ :<c-u>python vimpy.Visual().enclose('[', ']')<cr>
 hi Comment ctermfg=8 ctermbg=NONE
 hi LineNr ctermfg=8 ctermbg=NONE
 hi TabLineSel cterm=NONE ctermfg=0
-hi ColorColumn ctermbg=0
+hi ColorColumn cterm=bold ctermbg=0
