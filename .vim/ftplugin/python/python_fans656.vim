@@ -71,7 +71,7 @@ if not vimpy.completer.added:
     vimpy.completer.hotkey = '<c-f>'
     vimpy.completer.add(word('f'), '\<bs>format()\<left>')
     vimpy.completer.add(word('i'), '\<bs>import ')
-    vimpy.completer.add(word('p'), '\<bs>print ')
+    vimpy.completer.add(word('p'), '\<bs>print()\<left>')
     vimpy.completer.add(word('e'), '\<bs>except :\<left>')
     vimpy.completer.add(word('r'), '\<bs>return ')
     vimpy.completer.add(word('ri'), '\<bs>raise ')
@@ -121,6 +121,8 @@ inoremap ;cl <esc>:python py.defineClass()<cr>
 inoremap ;cpl <esc>:python py.defineClass(withbody=True)<cr>
 " define function
 inoremap ;df <esc>:python py.defineFunction()<cr>
+" define async function
+inoremap ;ds <esc>:python py.defineFunction(async_func=True)<cr>
 " define function (pass)
 inoremap ;dpf <esc>:python py.defineFunction(withbody=True)<cr>
 " define __function__
@@ -172,6 +174,6 @@ inoremap ;fl from flask import *<cr>
     \<esc>?hello<cr>
 
 if !has('gui_running')
-    nnoremap ;r :write\|!clear; python %<cr>
-    nnoremap ;i :write\|!clear; python -i %<cr>
+    nnoremap ;r :write\|!clear; python3.7 %<cr>
+    nnoremap ;i :write\|!clear; python3.7 -i %<cr>
 endif
