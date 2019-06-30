@@ -49,20 +49,25 @@ syntax enable
 set background=dark
 "let t_Co=256
 "let g:solarized_termcolors=256
+let g:solarized_termcolors=256
+set t_Co=256
+set background=dark
 colorscheme solarized
 
-let &colorcolumn=join(range(81,999), ",")
-highlight ColorColumn ctermbg=8 guibg=#004050
-highlight Normal ctermbg=0
-
-" finetune colorscheme
-highlight CursorLineNr gui=bold guifg='#49646c'
-highlight MatchParen gui=bold guifg='#839496' guibg='#00556b'
-            \ cterm=underline,bold ctermbg=none ctermfg=none
-nnoremap <F10> :execute 'highlight '.synIDattr(synID(line('.'), col('.'), 1), 'name')<cr>
+"let &colorcolumn=join(range(81,999), ",")
+"highlight ColorColumn ctermbg=8 guibg=#004050
+"highlight Normal ctermbg=0
+"
+"" finetune colorscheme
+"highlight CursorLineNr gui=bold guifg='#49646c'
+"highlight MatchParen gui=bold guifg='#839496' guibg='#00556b'
+"            \ cterm=underline,bold ctermbg=none ctermfg=none
+"nnoremap <F10> :execute 'highlight '.synIDattr(synID(line('.'), col('.'), 1), 'name')<cr>
 
 set timeoutlen=500
 
+" Toggle hlsearch
+nnoremap <c-h> :set hlsearch!<cr>
 " Insert -> Normal
 noremap! <c-k> <esc>
 inoremap <c-s> <c-k>
