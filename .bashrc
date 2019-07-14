@@ -8,7 +8,9 @@ export TERM="xterm-256color"
 
 export LANGUAGE="en"
 export LC_ALL="en_US.UTF-8"
+export DEV="true"
 
+PATH="$PATH:/usr/local/go/bin"
 PATH="$PATH:/home/fans656/java/gradle-5.3/bin"
 
 alias ls="\ls --color"
@@ -18,6 +20,7 @@ alias sb=". ~/.bashrc"
 alias eb="vim ~/.bashrc"
 alias gl="git lola"
 alias gs="git status"
+alias dk="docker" && complete -F _docker dk
 
 alias tma="tmux attach -t"
 alias tmd="tmux detach -a && tmux detach"

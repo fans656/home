@@ -10,3 +10,7 @@
     dh = diff HEAD~ HEAD
 [push]
 	default = simple
+[credential "https://github.com"]
+	username = fans656@yahoo.com
+[credential]
+	helper = cache --timeout=3600
