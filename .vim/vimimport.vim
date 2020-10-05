@@ -1,4 +1,4 @@
-python << endpython
+python << Endpython
 import sys
 
 import vim
@@ -10,7 +10,7 @@ import vim
 sys.path.insert(0, vim.eval('expand("<sfile>:p:h")'))
 from vimimport import vimimport
 exec vimimport('vimpy')
-endpython
+Endpython
 
 function! s:GetPythonPrints(stmt)
     let t = @a

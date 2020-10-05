@@ -1,7 +1,11 @@
+import json
 import datetime
 import subprocess
 import re
 import os
+
+import requests
+
 
 try:
     import vim
@@ -515,6 +519,32 @@ def to_clipboard(visual=False):
                   http://host:6563/clip \
                   1 > /dev/null 2>&1 &'''.format(data)
     os.system(cmd)
+
+
+def fme_input():
+    res = fme_cmd('input')
+    if res['status'] == 'error':
+        content = json.dumps(res, indent = 2).split('\n')
+    else:
+        content = res['lines']
+    vim.current.buffer[:] = content
+
+
+def fme_output():
+    fme_cmd('output')
+
+
+def fme_cmd(cmd):
+    res = requests.post('http://localhost:10656/api/vim', json = {
+        'cmd': cmd,
+        'lines': vim.current.buffer[:],
+    })
+    if res.status_code != 200:
+        print(res.text)
+        return None
+    else:
+        return res.json()
+
 
 if __name__ == '__main__':
     import sys

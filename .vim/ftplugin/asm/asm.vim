@@ -4,7 +4,7 @@ if has('gui_running')
 endif
 let g:current_file = expand("%:p")
 
-python << endpython
+python << Endpython
 import vim
 import os
 vimrc_path = vim.eval('$MYVIMRC')
@@ -21,4 +21,4 @@ vim.command(('nnoremap ;s :' +
     ' \\| '.join(strip_commands) + 
     '<cr><cr>').format(fpath))
 vim.command(' | '.join(strip_commands))
-endpython
+Endpython

@@ -81,7 +81,6 @@ def defineClass(withbody=False):
 
 def defineFunction(withbody=False, underscore=False, async_func=False):
     line = Line()
-    line.text = line.text.replace(': ', '::')
     name, args = line.split()
     if underscore:
         name = '__{0}__'.format(name)
@@ -98,7 +97,6 @@ def defineFunction(withbody=False, underscore=False, async_func=False):
         name=name,
         args=', '.join(args),
     )
-    line.text = line.text.replace('::', ': ')
     vimpy.feed('A\<cr>')
     if withbody:
         vimpy.feed('pass')

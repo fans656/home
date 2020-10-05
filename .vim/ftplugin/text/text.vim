@@ -1,8 +1,8 @@
 autocmd BufWinEnter *.txt python checkEnos()
 autocmd BufWritePost sentences.txt silent !start /b python "D:\Private\enos\english\send.py"
-nnoremap ;t :py commitEnos()<cr>
+"nnoremap ;t :py commitEnos()<cr>
 
-python << endpython
+python << Endpython
 import os
 import subprocess
 import datetime
@@ -47,4 +47,4 @@ def commitEnos(path=None):
     dt = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     subprocess.call('git commit -m "{}"'.format(dt), shell=True)
     subprocess.Popen(('git', 'push'))
-endpython
+Endpython

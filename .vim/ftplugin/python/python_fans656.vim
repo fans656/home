@@ -10,11 +10,11 @@ inoremap ' ''<left>
 inoremap " ""<left>
 
 " run test
-nnoremap ;t :write\|!pytest<cr><cr>
+" nnoremap ;t :write\|!pytest<cr><cr>
 " interactive run
 nnoremap ;i :write\|!start cmd /C "python -i "%""<cr><cr>
 
-let g:py_executable="python"
+let g:py_executable="python3.7"
 " nnoremap ;2 :python switch_to_python2()<cr>
 " nnoremap ;3 :python switch_to_python3()<cr>
 nnoremap ;r :execute('write \| !start cmd /C "' . expand(g:py_executable) . ' "' . expand('%') . '" & pause"')<cr><cr>
@@ -28,7 +28,7 @@ nnoremap ;r :execute('write \| !start cmd /C "' . expand(g:py_executable) . ' "'
 "
 python exec vimimport('py')
 
-python << endpython
+python << Endpython
 #vimpy.command['run'].set('write', '!start cmd /C "python \"%\"" & pause<cr>')
 word = lambda text: (text, '((.*\W)|^)(\w+)$', 3)
 keyword = lambda text: (text, '\s*({0})$'.format(text), 1)
@@ -112,7 +112,7 @@ if not vimpy.completer.added:
 
     del word
     vimpy.completer.added = True
-endpython
+Endpython
 autocmd BufWritePre *.py python vimpy.removeTrailingWhitespaces()
 
 " define class
@@ -175,5 +175,5 @@ inoremap ;fl from flask import *<cr>
 
 if !has('gui_running')
     nnoremap ;r :write\|!clear; python3.7 %<cr>
-    nnoremap ;i :write\|!clear; python3.7 -i %<cr>
+    nnoremap ;i :write\|!clear; python3 -i %<cr>
 endif
