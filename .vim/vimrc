@@ -230,8 +230,11 @@ vnoremap ( :<c-u>python3 vimpy.Visual().enclose('(', ')')<cr>
 vnoremap [ :<c-u>python3 vimpy.Visual().enclose('[', ']')<cr>
 vnoremap { :<c-u>python3 vimpy.Visual().enclose('{', '}')<cr>
 
+" Run :PlugInstall in vim
+" See https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'jelera/vim-javascript-syntax'
 call plug#end()

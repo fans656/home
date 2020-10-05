@@ -76,7 +76,7 @@ class Cursor(object):
           Cursor(col=1) # current row
           Cursor(row=1, col=1)
         """
-        if isinstance(row, basestring):
+        if isinstance(row, str):
             name = row
             row, col = vim.current.buffer.mark(name)
             row -= 1 # vim line number begin at 1
@@ -198,7 +198,7 @@ class Line(object):
           line.text = ['foo', 'bar']
         """
         row = self.row
-        if isinstance(text, basestring):
+        if isinstance(text, str):
             text = [text]
         self[:] = text
 
@@ -377,7 +377,7 @@ class LineMatcher(object):
     def __init__(self, left, right, action=None):
         if not action:
             right, action = '', right
-        self.checkers = map(LineMatcher.Checker, (left, right))
+        self.checkers = list(map(LineMatcher.Checker, (left, right)))
         self.action = action
 
     def match(self, line):

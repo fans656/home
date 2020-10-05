@@ -15,7 +15,7 @@ Endpython
 function! s:GetPythonPrints(stmt)
     let t = @a
     redir @a
-    execute 'python '.a:stmt
+    execute 'python3 '.a:stmt
     redir END
     let r = @a
     let @a = t

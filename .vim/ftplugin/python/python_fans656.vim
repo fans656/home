@@ -12,25 +12,24 @@ inoremap " ""<left>
 " run test
 " nnoremap ;t :write\|!pytest<cr><cr>
 " interactive run
-nnoremap ;i :write\|!start cmd /C "python -i "%""<cr><cr>
+nnoremap ;i :write\|!start cmd /C "python3 -i "%""<cr><cr>
 
-let g:py_executable="python3.7"
+let g:py_executable="python3.8"
 " nnoremap ;2 :python3 switch_to_python2()<cr>
 " nnoremap ;3 :python3 switch_to_python3()<cr>
 nnoremap ;r :execute('write \| !start cmd /C "' . expand(g:py_executable) . ' "' . expand('%') . '" & pause"')<cr><cr>
 
 " debugger
-"python exec vimimport('debugger')
+"python3 exec vimimport('debugger')
 "nnoremap ;b :python3 debugger.debugger.toggle_breakpoint()<cr>
 "nnoremap ;d :python3 debugger.debugger.toggle()<cr>
 "highlight breakpoint guibg=darkred
 
 "
-python exec vimimport('py')
+python3 exec(vimimport('py'))
 
 python3 << Endpython
-python3 << Endpython
-#vimpy.command['run'].set('write', '!start cmd /C "python \"%\"" & pause<cr>')
+#vimpy.command['run'].set('write', '!start cmd /C "python3 \"%\"" & pause<cr>')
 word = lambda text: (text, '((.*\W)|^)(\w+)$', 3)
 keyword = lambda text: (text, '\s*({0})$'.format(text), 1)
 
@@ -40,7 +39,7 @@ def switch_to_python2():
     vimpy.completer.added = False
     vimpy.completer.add(word('p'), '\<bs>print ')
     vimpy.completer.added = True
-    print 'Switched to Python2'
+    print('Switched to Python2')
 switch_to_python2.context = (word,)
 
 def switch_to_python3():
@@ -49,7 +48,7 @@ def switch_to_python3():
     vimpy.completer.added = False
     vimpy.completer.add(word('p'), '\<bs>print()\<left>')
     vimpy.completer.added = True
-    print 'Switched to Python3'
+    print('Switched to Python3')
 switch_to_python3.context = (word,)
 
 if not vimpy.completer.added:
@@ -114,7 +113,7 @@ if not vimpy.completer.added:
     del word
     vimpy.completer.added = True
 Endpython
-autocmd BufWritePre *.py python vimpy.removeTrailingWhitespaces()
+autocmd BufWritePre *.py python3 vimpy.removeTrailingWhitespaces()
 
 " define class
 inoremap ;cl <esc>:python3 py.defineClass()<cr>
@@ -175,6 +174,6 @@ inoremap ;fl from flask import *<cr>
     \<esc>?hello<cr>
 
 if !has('gui_running')
-    nnoremap ;r :write\|!clear; python3.7 %<cr>
+    nnoremap ;r :write\|!clear; python3.8 %<cr>
     nnoremap ;i :write\|!clear; python3 -i %<cr>
 endif

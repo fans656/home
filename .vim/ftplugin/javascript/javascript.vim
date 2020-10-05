@@ -13,7 +13,6 @@ let g:jsx_ext_required = 0
 highlight! link jsStorageClass Keyword
 
 python3 << Endpython
-python3 << Endpython
 #vimpy.command['run'].set('write', r'node !{}\t.html'.format(
 #    vim.eval('expand("%:p:h")')))
 #vimpy.command['run'].set('write', '!start cmd /C "node \"%\"" & pause<cr>')
