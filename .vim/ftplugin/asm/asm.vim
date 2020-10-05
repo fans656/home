@@ -4,7 +4,8 @@ if has('gui_running')
 endif
 let g:current_file = expand("%:p")
 
-python << Endpython
+python3 << Endpython
+python3 << Endpython
 import vim
 import os
 vimrc_path = vim.eval('$MYVIMRC')

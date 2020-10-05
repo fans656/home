@@ -334,7 +334,7 @@ class UserCommand(object):
         stmt = '{name}({args})'.format(
                 name=self.funcname,
                 args=args)
-        command('python exec {0}'.format(stmt))
+        command('python exec({0})'.format(stmt))
 
 class UserCommandManager(object):
 
@@ -438,7 +438,7 @@ class Completer(object):
         # so, let's (temporarily) be settled with this inefficient hack
         for m in reversed(matchers):
             if m.matched:
-                print m.action
+                print(m.action)
                 break
 
 completer = Completer()

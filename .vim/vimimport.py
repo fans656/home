@@ -7,12 +7,12 @@ def vimimport(module, symbols=None, reload=False):
     """
     Get a python statement to import modules:
         # foo.py in current directory
-        exec vimimport('foo')
+        exec(vimimport('foo'))
         # foo.py in parent directory and alias
-        exec vimimport('../foo as fo')
+        exec(vimimport('../foo as fo'))
         # symbols
-        exec vimimport('foo', '*')
-        exec vimimport('foo', 'bar, baz')
+        exec(vimimport('foo', '*'))
+        exec(vimimport('foo', 'bar, baz'))
     """
 
     def getModulePathAndAlias(path):

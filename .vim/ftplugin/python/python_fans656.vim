@@ -15,20 +15,21 @@ inoremap " ""<left>
 nnoremap ;i :write\|!start cmd /C "python -i "%""<cr><cr>
 
 let g:py_executable="python3.7"
-" nnoremap ;2 :python switch_to_python2()<cr>
-" nnoremap ;3 :python switch_to_python3()<cr>
+" nnoremap ;2 :python3 switch_to_python2()<cr>
+" nnoremap ;3 :python3 switch_to_python3()<cr>
 nnoremap ;r :execute('write \| !start cmd /C "' . expand(g:py_executable) . ' "' . expand('%') . '" & pause"')<cr><cr>
 
 " debugger
 "python exec vimimport('debugger')
-"nnoremap ;b :python debugger.debugger.toggle_breakpoint()<cr>
-"nnoremap ;d :python debugger.debugger.toggle()<cr>
+"nnoremap ;b :python3 debugger.debugger.toggle_breakpoint()<cr>
+"nnoremap ;d :python3 debugger.debugger.toggle()<cr>
 "highlight breakpoint guibg=darkred
 
 "
 python exec vimimport('py')
 
-python << Endpython
+python3 << Endpython
+python3 << Endpython
 #vimpy.command['run'].set('write', '!start cmd /C "python \"%\"" & pause<cr>')
 word = lambda text: (text, '((.*\W)|^)(\w+)$', 3)
 keyword = lambda text: (text, '\s*({0})$'.format(text), 1)
@@ -116,21 +117,21 @@ Endpython
 autocmd BufWritePre *.py python vimpy.removeTrailingWhitespaces()
 
 " define class
-inoremap ;cl <esc>:python py.defineClass()<cr>
+inoremap ;cl <esc>:python3 py.defineClass()<cr>
 " define class (pass)
-inoremap ;cpl <esc>:python py.defineClass(withbody=True)<cr>
+inoremap ;cpl <esc>:python3 py.defineClass(withbody=True)<cr>
 " define function
-inoremap ;df <esc>:python py.defineFunction()<cr>
+inoremap ;df <esc>:python3 py.defineFunction()<cr>
 " define async function
-inoremap ;ds <esc>:python py.defineFunction(async_func=True)<cr>
+inoremap ;ds <esc>:python3 py.defineFunction(async_func=True)<cr>
 " define function (pass)
-inoremap ;dpf <esc>:python py.defineFunction(withbody=True)<cr>
+inoremap ;dpf <esc>:python3 py.defineFunction(withbody=True)<cr>
 " define __function__
-inoremap ;du <esc>:python py.defineFunction(underscore=True)<cr>
+inoremap ;du <esc>:python3 py.defineFunction(underscore=True)<cr>
 " define __function__ (pass)
-inoremap ;dpu <esc>:python py.defineFunction(withbody=True, underscore=True)<cr>
+inoremap ;dpu <esc>:python3 py.defineFunction(withbody=True, underscore=True)<cr>
 " self.foo = foo
-inoremap ;is <esc>:python py.assignToSelf()<cr>
+inoremap ;is <esc>:python3 py.assignToSelf()<cr>
 " from __future__ import ...
 inoremap ;fu from __future__ import absolute_import, print_function, division<esc>
 " flask

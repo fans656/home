@@ -1,6 +1,7 @@
 nnoremap ;r :write \| !start cmd /C "javac -cp . -encoding utf-8 % && java -cp . -Dfile.encoding=gbk %:r" & pause<cr><cr>
 
-python << Endpython
+python3 << Endpython
+python3 << Endpython
 if not vimpy.completer.added:
     # completion
     word = lambda text: (text, '((.*\W)|^)(\w+)$', 3)

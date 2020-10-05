@@ -2,7 +2,8 @@ autocmd BufWinEnter *.txt python checkEnos()
 autocmd BufWritePost sentences.txt silent !start /b python "D:\Private\enos\english\send.py"
 "nnoremap ;t :py commitEnos()<cr>
 
-python << Endpython
+python3 << Endpython
+python3 << Endpython
 import os
 import subprocess
 import datetime

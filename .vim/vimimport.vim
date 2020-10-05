@@ -1,4 +1,4 @@
-python << Endpython
+python3 << Endpython
 import sys
 
 import vim
@@ -9,7 +9,7 @@ import vim
 # then use vimimport() to access any module
 sys.path.insert(0, vim.eval('expand("<sfile>:p:h")'))
 from vimimport import vimimport
-exec vimimport('vimpy')
+exec(vimimport('vimpy'))
 Endpython
 
 function! s:GetPythonPrints(stmt)
