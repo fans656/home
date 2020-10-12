@@ -237,4 +237,5 @@ Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'jelera/vim-javascript-syntax'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 call plug#end()
